@@ -47,6 +47,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add_24"
+        android:contentDescription="@string/adicionar_tarefa"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
