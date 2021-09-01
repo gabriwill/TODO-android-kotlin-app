@@ -12,6 +12,6 @@
         android:text="@string/default_day_info"
         android:textStyle="bold"
         app:strokeColor="@color/black"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        />
+        app:strokeWidth="1dp"
+ />
 </LinearLayout>

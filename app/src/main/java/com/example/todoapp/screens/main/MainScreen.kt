@@ -27,7 +27,7 @@ class MainScreen : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.main_screen_fragment, container, false)
         viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
-        val dayInfoAdapter= DayInfoAdapter()
+        val dayInfoAdapter= DayInfoAdapter(activity?.baseContext)
         binding.dayList.adapter = dayInfoAdapter
         return binding.root
     }
