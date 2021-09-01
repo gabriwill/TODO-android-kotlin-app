@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/drawable/ic_close_24.xml" value="0.2169230769230769" />
         <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/layout/add_todo_fragment.xml" value="0.33" />
         <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/layout/content_main.xml" value="0.20427305888483585" />
         <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/layout/day_item.xml" value="0.33" />
         <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/layout/day_item_active.xml" value="0.25" />
+        <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/layout/description_n_edit_fragment.xml" value="0.25" />
         <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/layout/fragment_first.xml" value="0.20416666666666666" />
         <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/layout/fragment_second.xml" value="0.20416666666666666" />
         <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/layout/main_screen_fragment.xml" value="0.20416666666666666" />
