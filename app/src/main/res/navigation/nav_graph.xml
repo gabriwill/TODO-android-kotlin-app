@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainScreen"
         android:name="com.example.todoapp.screens.main.MainScreen"
-        android:label="main_screen_fragment"
+        android:label="TODO APP"
         tools:layout="@layout/main_screen_fragment" >
         <action
             android:id="@+id/action_mainScreen_to_addTodo"
@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/addTodo"
         android:name="com.example.todoapp.screens.addtodo.AddTodo"
-        android:label="add_todo_fragment"
+        android:label="Crie uma nova tarefa"
         tools:layout="@layout/add_todo_fragment" >
         <action
             android:id="@+id/action_addTodo_to_mainScreen"
@@ -36,6 +36,6 @@
     <fragment
         android:id="@+id/descriptionNEditFragment"
         android:name="com.example.todoapp.screens.descriptionandedit.DescriptionNEditFragment"
-        android:label="description_n_edit_fragment"
+        android:label="Edite a tarefa"
         tools:layout="@layout/description_n_edit_fragment" />
 </navigation>
