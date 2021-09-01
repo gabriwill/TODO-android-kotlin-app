@@ -5,6 +5,7 @@ data class ToDo(
     val description: String,
     val hour: String,
     val date: String,
-    val isNotificationEnable: Boolean
+    val isNotificationEnable: Boolean,
+    val id: Long = 0L
 ) {
 }
