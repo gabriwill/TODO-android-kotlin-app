@@ -23,4 +23,6 @@
     <string name="enable_notifications">Habilitar Notificações</string>
     <string name="date_placeholder">dd/MM/yyyy</string>
     <string name="hour_placeholder">hh:mm</string>
+    <string name="back_month">Mês Anterior</string>
+    <string name="next_month">Proximo Mês</string>
 </resources>
