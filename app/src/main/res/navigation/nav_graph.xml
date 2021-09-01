@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/descriptionNEditFragment"
-        android:name="com.example.todoapp.DescriptionNEditFragment"
+        android:name="com.example.todoapp.screens.descriptionandedit.DescriptionNEditFragment"
         android:label="description_n_edit_fragment"
         tools:layout="@layout/description_n_edit_fragment" />
 </navigation>
