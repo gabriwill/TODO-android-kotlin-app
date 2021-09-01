@@ -24,19 +24,28 @@ class MainScreen : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+
         binding = DataBindingUtil.inflate(
             inflater, R.layout.main_screen_fragment, container, false)
+
         viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
+
         val dayInfoAdapter= DayInfoAdapter(activity?.baseContext)
         val taskListAdapter = TasksListAdapter()
+
         binding.dayList.adapter = dayInfoAdapter
         binding.tasksList.adapter = taskListAdapter
 
+        setClickListeners()
+
+        return binding.root
+    }
+
+    fun setClickListeners(){
         binding.addTodoBtn.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_mainScreen_to_addTodo)
         }
-        return binding.root
     }
 
 
