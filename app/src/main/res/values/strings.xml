@@ -12,4 +12,10 @@
     <string name="tasks">Tarefas</string>
     <string name="adicionar_tarefa">adicionar tarefa</string>
     <string name="default_day_info">mon\n12</string>
+    <string name="description_label">Descrição</string>
+    <string name="title_label">Titulo</string>
+    <string name="date_label">Data</string>
+    <string name="hour_label">Hora</string>
+    <string name="add_task_btn_txt">Adicionar tarefa</string>
+    <string name="cancel_txt_btn">Cancelar</string>
 </resources>
