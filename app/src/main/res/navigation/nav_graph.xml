@@ -19,6 +19,10 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/mainScreen"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_mainScreen_to_descriptionNEditFragment"
+            app:destination="@id/descriptionNEditFragment"
+            app:popUpTo="@id/mainScreen" />
     </fragment>
     <fragment
         android:id="@+id/addTodo"
@@ -29,4 +33,9 @@
             android:id="@+id/action_addTodo_to_mainScreen"
             app:destination="@id/mainScreen" />
     </fragment>
+    <fragment
+        android:id="@+id/descriptionNEditFragment"
+        android:name="com.example.todoapp.DescriptionNEditFragment"
+        android:label="description_n_edit_fragment"
+        tools:layout="@layout/description_n_edit_fragment" />
 </navigation>
