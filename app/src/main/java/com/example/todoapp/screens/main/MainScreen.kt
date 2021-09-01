@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.findNavController
 import com.example.todoapp.R
 import com.example.todoapp.databinding.MainScreenFragmentBinding
 
@@ -29,6 +30,10 @@ class MainScreen : Fragment() {
         viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
         val dayInfoAdapter= DayInfoAdapter(activity?.baseContext)
         binding.dayList.adapter = dayInfoAdapter
+
+        binding.addTodoBtn.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_mainScreen_to_addTodo)
+        }
         return binding.root
     }
 

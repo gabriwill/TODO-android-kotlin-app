@@ -9,5 +9,24 @@
         android:id="@+id/mainScreen"
         android:name="com.example.todoapp.screens.main.MainScreen"
         android:label="main_screen_fragment"
-        tools:layout="@layout/main_screen_fragment" />
+        tools:layout="@layout/main_screen_fragment" >
+        <action
+            android:id="@+id/action_mainScreen_to_addTodo"
+            app:destination="@id/addTodo"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/mainScreen"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTodo"
+        android:name="com.example.todoapp.screens.addtodo.AddTodo"
+        android:label="add_todo_fragment"
+        tools:layout="@layout/add_todo_fragment" >
+        <action
+            android:id="@+id/action_addTodo_to_mainScreen"
+            app:destination="@id/mainScreen" />
+    </fragment>
 </navigation>
