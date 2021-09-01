@@ -20,6 +20,8 @@ class MainScreen : Fragment() {
 
     private lateinit var viewModel: MainScreenViewModel
     private lateinit var binding: MainScreenFragmentBinding
+    private lateinit var dayInfoAdapter: DayInfoAdapter
+    private lateinit var taskListAdapter: TasksListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,15 +33,25 @@ class MainScreen : Fragment() {
 
         viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
 
-        val dayInfoAdapter= DayInfoAdapter(activity?.baseContext)
-        val taskListAdapter = TasksListAdapter()
+        dayInfoAdapter= DayInfoAdapter(activity?.baseContext)
+        taskListAdapter = TasksListAdapter()
 
         binding.dayList.adapter = dayInfoAdapter
         binding.tasksList.adapter = taskListAdapter
 
         setClickListeners()
+        setLiveDataObservers()
 
         return binding.root
+    }
+
+    private fun setLiveDataObservers() {
+        viewModel.currentDate.observe(viewLifecycleOwner,{
+            binding.currentMonthYearText.text = viewModel.currentMonthYearString()
+        })
+        viewModel.todoList.observe(viewLifecycleOwner,{ taskList ->
+            taskListAdapter.taskList = taskList
+        })
     }
 
     fun setClickListeners(){

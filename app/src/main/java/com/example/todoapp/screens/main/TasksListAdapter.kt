@@ -9,10 +9,7 @@ import com.example.todoapp.R
 import com.example.todoapp.model.ToDo
 
 class TasksListAdapter: RecyclerView.Adapter<TasksListAdapter.ViewHolder>() {
-    var taskList = listOf<ToDo>(
-        ToDo("gabriel","ksjdsjds\nsdhushdu","12:15","12/08/2021",false),
-        ToDo("gabriel","ksjdsjds\nsdhushdu","12:15","12/08/2021",false),
-    )
+    var taskList = listOf<ToDo>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.task_card_view,parent,false))
