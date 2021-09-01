@@ -21,4 +21,6 @@
     <string name="edit_cancel">cancelar edição</string>
     <string name="edit_task">editar tarefa</string>
     <string name="enable_notifications">Habilitar Notificações</string>
+    <string name="date_placeholder">dd/MM/yyyy</string>
+    <string name="hour_placeholder">hh:mm</string>
 </resources>

@@ -29,7 +29,9 @@ class MainScreen : Fragment() {
             inflater, R.layout.main_screen_fragment, container, false)
         viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
         val dayInfoAdapter= DayInfoAdapter(activity?.baseContext)
+        val taskListAdapter = TasksListAdapter()
         binding.dayList.adapter = dayInfoAdapter
+        binding.tasksList.adapter = taskListAdapter
 
         binding.addTodoBtn.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_mainScreen_to_addTodo)
