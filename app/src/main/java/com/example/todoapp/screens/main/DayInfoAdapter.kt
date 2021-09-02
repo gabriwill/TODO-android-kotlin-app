@@ -1,5 +1,6 @@
 package com.example.todoapp.screens.main
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +12,12 @@ import com.example.todoapp.R
 class DayInfoAdapter(private val context: Context?):
     RecyclerView.Adapter<DayInfoAdapter.ViewHolder>() {
 
-    val days = listOf<String>(
-        "seg\n01",
-        "ter\n02",
-        "qua\n03"
-    )
+    var days = listOf<String>("")
+        @SuppressLint("NotifyDataSetChanged")
+        set(value) {
+            field=value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.day_item,parent,false))

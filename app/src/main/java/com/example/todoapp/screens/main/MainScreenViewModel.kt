@@ -6,6 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.todoapp.model.ToDo
 import com.example.todoapp.utils.CalendarUtils
+import com.example.todoapp.utils.CalendarUtils.Companion.getDaysList
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class MainScreenViewModel : ViewModel() {
@@ -27,7 +30,9 @@ class MainScreenViewModel : ViewModel() {
     }
 
     fun currentMonthYearString(): String {
-        val month = CalendarUtils.getMonthString(currentDate.value?.get(Calendar.MONTH))
+        val month = currentDate.value
+            ?.getDisplayName(Calendar.MONTH,Calendar.LONG,Locale("pt","BR"))
+            ?.replaceFirstChar { it.uppercase() }
         val year = currentDate.value?.get(Calendar.YEAR)
         return "$month/$year"
     }

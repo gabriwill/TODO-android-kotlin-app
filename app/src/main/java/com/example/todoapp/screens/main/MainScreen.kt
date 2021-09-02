@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import com.example.todoapp.R
 import com.example.todoapp.databinding.MainScreenFragmentBinding
+import com.example.todoapp.utils.CalendarUtils.Companion.getDaysList
 
 class MainScreen : Fragment() {
 
@@ -39,6 +40,7 @@ class MainScreen : Fragment() {
         binding.dayList.adapter = dayInfoAdapter
         binding.tasksList.adapter = taskListAdapter
 
+
         setClickListeners()
         setLiveDataObservers()
 
@@ -48,6 +50,7 @@ class MainScreen : Fragment() {
     private fun setLiveDataObservers() {
         viewModel.currentDate.observe(viewLifecycleOwner,{
             binding.currentMonthYearText.text = viewModel.currentMonthYearString()
+            dayInfoAdapter.days = getDaysList(viewModel.currentDate.value!!)
         })
         viewModel.todoList.observe(viewLifecycleOwner,{ taskList ->
             taskListAdapter.taskList = taskList
