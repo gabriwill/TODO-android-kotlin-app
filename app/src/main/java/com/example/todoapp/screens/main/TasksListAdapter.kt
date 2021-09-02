@@ -7,6 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.R
 import com.example.todoapp.model.ToDo
+import com.example.todoapp.utils.CalendarUtils.Companion.getDateString
+import com.example.todoapp.utils.CalendarUtils.Companion.getHourString
+import java.util.*
 
 class TasksListAdapter: RecyclerView.Adapter<TasksListAdapter.ViewHolder>() {
     var taskList = listOf<ToDo>()
@@ -16,8 +19,8 @@ class TasksListAdapter: RecyclerView.Adapter<TasksListAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.titleTxt.text = taskList[position].title
-        holder.dateTxt.text = taskList[position].date
-        holder.hourTxt.text = taskList[position].hour
+        holder.dateTxt.text = getDateString(taskList[position].date)
+        holder.hourTxt.text = getHourString(taskList[position].date)
     }
 
     override fun getItemCount(): Int = taskList.size

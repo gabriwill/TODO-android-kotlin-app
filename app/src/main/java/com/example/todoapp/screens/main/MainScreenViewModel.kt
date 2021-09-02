@@ -21,8 +21,8 @@ class MainScreenViewModel : ViewModel() {
     init{
         _currentDate.value= Calendar.getInstance()
         _todoList.value = listOf<ToDo>(
-            ToDo("gabriel","ksjdsjds\nsdhushdu","12:15","12/08/2021",false),
-            ToDo("gabriel","ksjdsjds\nsdhushdu","12:15","12/08/2021",false),
+            ToDo("gabriel","ksjdsjds\nsdhushdu",currentDate.value!!,false),
+            ToDo("gabriel","ksjdsjds\nsdhushdu",currentDate.value!!,false),
         )
     }
 
@@ -34,14 +34,14 @@ class MainScreenViewModel : ViewModel() {
 
     fun goToNextMonth(){
         val date: Calendar? = _currentDate.value
-        if(currentDate.value?.get(Calendar.MONTH)==0) date?.roll(Calendar.YEAR,true)
+        if(currentDate.value?.get(Calendar.MONTH)==11) date?.roll(Calendar.YEAR,true)
         date?.roll(Calendar.MONTH,true)
         _currentDate.value = date?:_currentDate.value
     }
 
     fun goToPreviousMonth(){
         val date: Calendar? = _currentDate.value
-        if(currentDate.value?.get(Calendar.MONTH)==1) date?.roll(Calendar.YEAR,false)
+        if(currentDate.value?.get(Calendar.MONTH)==0) date?.roll(Calendar.YEAR,false)
         date?.roll(Calendar.MONTH,false)
         _currentDate.value = date?:_currentDate.value
     }
