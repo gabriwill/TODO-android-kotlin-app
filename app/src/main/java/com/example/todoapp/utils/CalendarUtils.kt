@@ -21,14 +21,15 @@ class CalendarUtils {
             return "$hour:$minute"
         }
         fun getDaysList(date: Calendar): List<String>{
-            val lastDayOfMonth = date.getActualMaximum(Calendar.DAY_OF_MONTH)
+            val _date = date.clone() as Calendar
+            val lastDayOfMonth = _date.getActualMaximum(Calendar.DAY_OF_MONTH)
             val dayList = List(lastDayOfMonth) {
-                date.set(Calendar.DAY_OF_MONTH, it+1)
+                _date.set(Calendar.DAY_OF_MONTH, it+1)
                 val dayString =
-                    date.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale("pt", "BR"))
+                    _date.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale("pt", "BR"))
                 val dayNumber =
-                    if (date.get(Calendar.DAY_OF_MONTH) < 10) "0${date.get(Calendar.DAY_OF_MONTH)}"
-                    else date.get(Calendar.DAY_OF_MONTH)
+                    if (_date.get(Calendar.DAY_OF_MONTH) < 10) "0${_date.get(Calendar.DAY_OF_MONTH)}"
+                    else _date.get(Calendar.DAY_OF_MONTH)
                 "$dayString\n$dayNumber"
             }
             return dayList

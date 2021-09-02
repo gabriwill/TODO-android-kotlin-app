@@ -34,7 +34,7 @@ class MainScreen : Fragment() {
 
         viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
 
-        dayInfoAdapter= DayInfoAdapter(activity?.baseContext)
+        dayInfoAdapter= DayInfoAdapter(activity?.baseContext, viewModel)
         taskListAdapter = TasksListAdapter()
 
         binding.dayList.adapter = dayInfoAdapter
@@ -50,7 +50,7 @@ class MainScreen : Fragment() {
     private fun setLiveDataObservers() {
         viewModel.currentDate.observe(viewLifecycleOwner,{
             binding.currentMonthYearText.text = viewModel.currentMonthYearString()
-            dayInfoAdapter.days = getDaysList(viewModel.currentDate.value!!)
+            dayInfoAdapter.update()
         })
         viewModel.todoList.observe(viewLifecycleOwner,{ taskList ->
             taskListAdapter.taskList = taskList
