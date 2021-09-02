@@ -1,5 +1,6 @@
 package com.example.todoapp.screens.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -29,6 +30,20 @@ class MainScreenViewModel : ViewModel() {
         val month = CalendarUtils.getMonthString(currentDate.value?.get(Calendar.MONTH))
         val year = currentDate.value?.get(Calendar.YEAR)
         return "$month/$year"
+    }
+
+    fun goToNextMonth(){
+        val date: Calendar? = _currentDate.value
+        if(currentDate.value?.get(Calendar.MONTH)==0) date?.roll(Calendar.YEAR,true)
+        date?.roll(Calendar.MONTH,true)
+        _currentDate.value = date?:_currentDate.value
+    }
+
+    fun goToPreviousMonth(){
+        val date: Calendar? = _currentDate.value
+        if(currentDate.value?.get(Calendar.MONTH)==1) date?.roll(Calendar.YEAR,false)
+        date?.roll(Calendar.MONTH,false)
+        _currentDate.value = date?:_currentDate.value
     }
 
 }

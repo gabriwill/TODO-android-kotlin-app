@@ -58,6 +58,12 @@ class MainScreen : Fragment() {
         binding.addTodoBtn.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_mainScreen_to_addTodo)
         }
+        binding.backArrow.setOnClickListener {
+            viewModel.goToPreviousMonth()
+        }
+        binding.forwardArrow.setOnClickListener {
+            viewModel.goToNextMonth()
+        }
     }
 
 
