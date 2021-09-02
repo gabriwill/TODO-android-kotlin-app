@@ -37,6 +37,10 @@ class MainScreenViewModel : ViewModel() {
         return "$month/$year"
     }
 
+    fun setCurrentDay(day: Int){
+        if(day>0) _currentDate.value?.set(Calendar.DAY_OF_MONTH,day)
+    }
+
     fun goToNextMonth(){
         val date: Calendar? = _currentDate.value
         if(currentDate.value?.get(Calendar.MONTH)==11) date?.roll(Calendar.YEAR,true)

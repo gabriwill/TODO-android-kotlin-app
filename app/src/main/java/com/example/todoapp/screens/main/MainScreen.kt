@@ -34,7 +34,7 @@ class MainScreen : Fragment() {
 
         viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
 
-        dayInfoAdapter= DayInfoAdapter(activity?.baseContext, viewModel)
+        dayInfoAdapter= DayInfoAdapter(viewModel)
         taskListAdapter = TasksListAdapter()
 
         binding.dayList.adapter = dayInfoAdapter

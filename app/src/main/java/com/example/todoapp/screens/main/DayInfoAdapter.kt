@@ -12,7 +12,7 @@ import com.example.todoapp.R
 import com.example.todoapp.utils.CalendarUtils
 import java.util.*
 
-class DayInfoAdapter(private val context: Context?,private val viewModel: MainScreenViewModel):
+class DayInfoAdapter(private val viewModel: MainScreenViewModel):
     RecyclerView.Adapter<DayInfoAdapter.ViewHolder>() {
 
     private var days = listOf<String>("Seg\n01")
@@ -24,10 +24,16 @@ class DayInfoAdapter(private val context: Context?,private val viewModel: MainSc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.button.text = days[position]
+
         if(currentDay==(position+1)) {
             Log.i("date", "$currentDay - $position")
             holder.button.selectedStateStyle()
         }else holder.button.unSelectedStateStyle()
+
+        holder.button.setOnClickListener {
+            viewModel.setCurrentDay(position+1)
+            update()
+        }
     }
 
     override fun getItemCount(): Int = days.size
