@@ -4,7 +4,8 @@ import com.example.todoapp.model.ToDo
 import java.util.*
 
 interface RepositoryToDo {
-    fun getToDoByDate(date:Calendar):List<ToDo>
-    fun addToDo(toDo: ToDo): Boolean
-    fun deleteToDo(toDo: ToDo): Boolean
+    suspend fun getToDoByDay(date:Calendar):List<ToDo>?
+    suspend fun addToDo(toDo: ToDo): Boolean
+    suspend fun updateToDo(toDo: ToDo): Boolean
+    suspend fun deleteToDo(toDo: ToDo): Boolean
 }

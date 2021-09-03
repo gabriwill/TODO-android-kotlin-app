@@ -4,14 +4,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.todoapp.model.ToDo
+import com.example.todoapp.repository.RepositoryToDo
 import com.example.todoapp.utils.CalendarUtils
 import com.example.todoapp.utils.CalendarUtils.Companion.getDaysList
+import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-class MainScreenViewModel : ViewModel() {
+class MainScreenViewModel(private val repository: RepositoryToDo) : ViewModel() {
 
     private val _currentDate= MutableLiveData<Calendar>()
     val currentDate: LiveData<Calendar>
@@ -23,10 +26,13 @@ class MainScreenViewModel : ViewModel() {
 
     init{
         _currentDate.value= Calendar.getInstance()
-        _todoList.value = listOf<ToDo>(
-            ToDo("gabriel","ksjdsjds\nsdhushdu",currentDate.value!!,false),
-            ToDo("gabriel","ksjdsjds\nsdhushdu",currentDate.value!!,false),
-        )
+        getTodoList()
+    }
+
+    fun getTodoList(){
+        viewModelScope.launch {
+            _todoList.value = repository.getToDoByDay(currentDate.value?:Calendar.getInstance())
+        }
     }
 
     fun currentMonthYearString(): String {
