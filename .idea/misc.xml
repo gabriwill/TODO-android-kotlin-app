@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.2169230769230769" />
         <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/drawable/ic_close_24.xml" value="0.2169230769230769" />
         <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/layout/add_todo_fragment.xml" value="0.33" />
         <entry key="..\:/Usuario/AndroidStudioProjects/ToDoApp/app/src/main/res/layout/content_main.xml" value="0.20427305888483585" />

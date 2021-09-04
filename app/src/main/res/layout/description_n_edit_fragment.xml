@@ -119,7 +119,7 @@
         app:layout_constraintBottom_toTopOf="@id/edit_todo_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_close_24"
-        android:tint="@color/black"
+        app:tint="@color/black"
         app:borderWidth="1dp"
         app:backgroundTint="@color/white"
         android:contentDescription="@string/edit_cancel"
