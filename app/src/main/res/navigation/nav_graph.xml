@@ -22,7 +22,7 @@
         <action
             android:id="@+id/action_mainScreen_to_descriptionNEditFragment"
             app:destination="@id/descriptionNEditFragment"
-            app:popUpTo="@id/mainScreen" />
+            app:popUpTo="@id/mainScreen"/>
     </fragment>
     <fragment
         android:id="@+id/addTodo"
