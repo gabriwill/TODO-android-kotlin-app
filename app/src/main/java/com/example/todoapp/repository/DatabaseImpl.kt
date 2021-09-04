@@ -22,7 +22,6 @@ class DatabaseImpl(context: Context): RepositoryToDo {
         val startOfDay = _date.timeInMillis
         _date.set(year,month,day,23,59)
         val endOfDay = _date.timeInMillis
-
         val listOfRows = databaseDao.getBetweenDates(startOfDay,endOfDay)
         val listOfTodos = mutableListOf<ToDo>()
         if(listOfRows != null) {

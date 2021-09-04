@@ -21,7 +21,7 @@ class MainScreenViewModel(private val repository: RepositoryToDo) : ViewModel() 
         get() = _currentDate
 
     private val _todoList= MutableLiveData<List<ToDo>>()
-    val todoList: MutableLiveData<List<ToDo>>
+    val todoList: LiveData<List<ToDo>>
         get() = _todoList
 
     init{
@@ -44,7 +44,11 @@ class MainScreenViewModel(private val repository: RepositoryToDo) : ViewModel() 
     }
 
     fun setCurrentDay(day: Int){
-        if(day>0) _currentDate.value?.set(Calendar.DAY_OF_MONTH,day)
+        if(day>0) {
+            val date: Calendar? = _currentDate.value
+            date?.set(Calendar.DAY_OF_MONTH, day)
+            _currentDate.value = date?:_currentDate.value
+        }
     }
 
     fun goToNextMonth(){

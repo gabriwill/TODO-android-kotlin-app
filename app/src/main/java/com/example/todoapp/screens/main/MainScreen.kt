@@ -63,6 +63,7 @@ class MainScreen : Fragment() {
         })
         viewModel.todoList.observe(viewLifecycleOwner,{ taskList ->
             taskListAdapter.taskList = taskList
+            taskListAdapter.notifyDataSetChanged()
         })
     }
 

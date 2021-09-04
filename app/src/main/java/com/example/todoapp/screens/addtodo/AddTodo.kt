@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.example.todoapp.R
 import com.example.todoapp.databinding.AddTodoFragmentBinding
+import com.example.todoapp.repository.DatabaseImpl
 import com.example.todoapp.utils.CalendarUtils
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
@@ -32,10 +33,15 @@ class AddTodo : Fragment() {
     ): View {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.add_todo_fragment,container,false)
+
+        val dataSource = DatabaseImpl(requireContext())
+
+        val factory = AddTodoViewModelFactory(dataSource)
+        viewModel = ViewModelProvider(this,factory).get(AddTodoViewModel::class.java)
+
         setOnClickListeners()
         setOnChangeTextListeners()
 
-        viewModel = ViewModelProvider(this).get(AddTodoViewModel::class.java)
         return binding.root
     }
 
@@ -94,13 +100,23 @@ class AddTodo : Fragment() {
                 if(isHourEmpty) binding.hourTextField.error = "Selecione uma horário"
                 return@setOnClickListener
             }
-
-            findNavController().navigate(R.id.action_addTodo_to_mainScreen)
+            saveTodo(it)
         }
 
         binding.cancelAddBtn.setOnClickListener {
             findNavController().navigate(R.id.action_addTodo_to_mainScreen)
         }
+    }
+
+    private fun saveTodo(view: View) {
+        viewModel.createTodo(
+            binding.titleTextField.editText?.text.toString(),
+            binding.descriptionTextField.editText?.text.toString(),
+            binding.dateTextField.editText?.text.toString(),
+            binding.hourTextField.editText?.text.toString(),
+            binding.notificationSwitchState.isChecked,
+            view
+        )
     }
 
 }
