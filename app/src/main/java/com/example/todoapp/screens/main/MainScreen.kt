@@ -64,6 +64,8 @@ class MainScreen : Fragment() {
         viewModel.todoList.observe(viewLifecycleOwner,{ taskList ->
             taskListAdapter.taskList = taskList
             taskListAdapter.notifyDataSetChanged()
+            binding.emptyListPlaceholder
+                .emptyListLayout.visibility = if(taskList.isEmpty()) View.VISIBLE else View.GONE
         })
     }
 

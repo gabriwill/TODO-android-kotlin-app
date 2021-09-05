@@ -67,6 +67,13 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/day_list"
         />
+    <include
+        android:id="@+id/empty_list_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/empty_state"
+        app:layout_constraintTop_toBottomOf="@id/title_tasks"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tasks_list"
         android:layout_width="match_parent"
