@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import com.example.todoapp.R
 import com.example.todoapp.model.ToDo
 import com.example.todoapp.repository.RepositoryToDo
+import com.example.todoapp.utils.CalendarUtils.Companion.getDateFromStrings
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -35,16 +36,7 @@ class DescriptionNEditViewModel(private val repository: RepositoryToDo) : ViewMo
                    hourString: String,
                    isNotificationEnable: Boolean, view: View
     ){
-
-        val (day, month, year) = dateString.split("/").map {
-            it.toInt()
-        }
-
-        val (hour, minute) = hourString.split(":").map {
-            it.toInt()
-        }
-        val date = Calendar.getInstance()
-        date.set(year,month-1,day,hour,minute)
+        val date = getDateFromStrings(dateString,hourString)
 
         val todo = ToDo(title, description, date, isNotificationEnable,id)
         viewModelScope.launch {

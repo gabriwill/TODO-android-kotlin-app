@@ -4,6 +4,19 @@ import java.util.*
 
 class CalendarUtils {
     companion object{
+        fun getDateFromStrings(dateString: String,
+                               hourString: String): Calendar{
+            val (day, month, year) = dateString.split("/").map {
+                it.toInt()
+            }
+
+            val (hour, minute) = hourString.split(":").map {
+                it.toInt()
+            }
+            val date = Calendar.getInstance()
+            date.set(year,month-1,day,hour,minute)
+            return date
+        }
 
         fun getDateString(date: Calendar): String{
             val day = if(date.get(Calendar.DAY_OF_MONTH)<10) "0${date.get(Calendar.DAY_OF_MONTH)}"
