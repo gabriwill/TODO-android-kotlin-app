@@ -51,7 +51,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 - Clone este repositório.
 ```
-git clone 
+git clone https://github.com/gabriwill/TODO-android-kotlin-app.git
 ```
 - Execute o arquivo `build.gradle`.
 
