@@ -84,7 +84,7 @@ class AddTodo : Fragment() {
             if(isTitleEmpty || isDateEmpty || isHourEmpty) {
                 if(isTitleEmpty) binding.titleTextField.error = "Digite um titulo"
                 if(isDateEmpty) binding.dateTextField.error = "Selecione uma data"
-                if(isHourEmpty) binding.hourTextField.error = "Selecione uma horário"
+                if(isHourEmpty) binding.hourTextField.error = "Selecione um horário"
                 return@setOnClickListener
             }
             saveTodo(it)
