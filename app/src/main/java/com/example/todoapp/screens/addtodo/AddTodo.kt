@@ -13,6 +13,7 @@ import com.example.todoapp.R
 import com.example.todoapp.databinding.AddTodoFragmentBinding
 import com.example.todoapp.repository.DatabaseImpl
 import com.example.todoapp.utils.CalendarUtils
+import com.example.todoapp.utils.DateTimeDialog
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -65,29 +66,15 @@ class AddTodo : Fragment() {
 
     private fun setOnClickListeners(){
         binding.dateTextField.editText?.setOnClickListener {
-            val datePicker = MaterialDatePicker.Builder.datePicker()
-                                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-                                .build()
-            datePicker.addOnPositiveButtonClickListener {
-                val timeZone = TimeZone.getDefault()
-                val offset = timeZone.getOffset(Date().time)*(-1)
-                val date = Calendar.getInstance()
-                date.timeInMillis = it + offset
-                val dateString = CalendarUtils.getDateString(date)
-                binding.dateTextField.editText?.setText(dateString)
+            DateTimeDialog.getDateStringFromDatePicker(childFragmentManager){
+                binding.dateTextField.editText?.setText(it)
             }
-            datePicker.show(childFragmentManager,"DATE_PICKER_TAG")
         }
 
         binding.hourTextField.editText?.setOnClickListener {
-            val hourPicker = MaterialTimePicker.Builder().setTimeFormat(TimeFormat.CLOCK_24H).build()
-            hourPicker.addOnPositiveButtonClickListener {
-                val hour = if(hourPicker.hour<10) "0${hourPicker.hour}" else hourPicker.hour
-                val minute = if(hourPicker.minute<10) "0${hourPicker.minute}" else hourPicker.minute
-                val hourString = "$hour:$minute"
-                binding.hourTextField.editText?.setText(hourString)
+            DateTimeDialog.getHourStringFromTimePicker(childFragmentManager){
+                binding.hourTextField.editText?.setText(it)
             }
-            hourPicker.show(childFragmentManager,"HOUR_PICKER_TAG")
         }
 
         binding.addTaskBtn.setOnClickListener {
