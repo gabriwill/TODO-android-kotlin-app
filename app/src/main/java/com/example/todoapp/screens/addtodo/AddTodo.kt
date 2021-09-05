@@ -104,7 +104,7 @@ class AddTodo : Fragment() {
         }
 
         binding.cancelAddBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_addTodo_to_mainScreen)
+            findNavController().popBackStack()
         }
     }
 
