@@ -58,7 +58,7 @@ class AddTodo : Fragment() {
 
         }
         binding.hourTextField.editText?.addTextChangedListener {
-            if(it?.length==0) binding.hourTextField.error = "Selecione uma horário"
+            if(it?.length==0) binding.hourTextField.error = "Selecione um horário"
             else binding.hourTextField.error = null
 
         }
