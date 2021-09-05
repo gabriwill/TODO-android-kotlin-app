@@ -157,8 +157,7 @@ class DescriptionNEditFragment : Fragment() {
 
         binding.cancelEditBtn.hide()
         binding.updateTodoBtn.hide()
-        binding.editTodoBtn.isClickable = true
-        binding.editTodoBtn.visibility = View.VISIBLE
+        binding.editTodoBtn.show()
     }
 
     private fun setEditMode(){
@@ -170,10 +169,9 @@ class DescriptionNEditFragment : Fragment() {
 
         (requireActivity() as AppCompatActivity).supportActionBar?.title = "Editar a tarefa"
 
-        binding.cancelEditBtn.show()
         binding.updateTodoBtn.show()
-        binding.editTodoBtn.isClickable = false
-        binding.editTodoBtn.visibility = View.INVISIBLE
+        binding.cancelEditBtn.show()
+        binding.editTodoBtn.hide()
     }
 
 }

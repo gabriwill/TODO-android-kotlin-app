@@ -116,7 +116,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:layout_constraintBottom_toTopOf="@id/edit_todo_btn"
+        app:layout_constraintBottom_toTopOf="@id/update_todo_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_close_24"
         app:tint="@color/black"
