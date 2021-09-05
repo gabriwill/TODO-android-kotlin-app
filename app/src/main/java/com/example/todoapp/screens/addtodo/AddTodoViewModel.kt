@@ -32,7 +32,7 @@ class AddTodoViewModel(private val repository:RepositoryToDo) : ViewModel() {
         val todo = ToDo(title, description, date, isNotificationEnable)
         viewModelScope.launch {
             saveTodo(todo)
-            view.findNavController().navigate(R.id.action_addTodo_to_mainScreen)
+            view.findNavController().popBackStack()
         }
     }
 
