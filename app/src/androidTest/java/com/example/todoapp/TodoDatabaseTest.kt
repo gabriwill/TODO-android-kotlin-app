@@ -106,4 +106,17 @@ class TodoDatabaseTest {
             it.title == "deleted To-Do"
         }?:true)
     }
+
+    @Test
+    @Throws(Exception::class)
+    fun insertAndGetLatest() = runBlocking {
+        val todo1 = ToDoEntity()
+        toDoDao.insert(todo1)
+        val todo2 = ToDoEntity(title="new title")
+        toDoDao.insert(todo2)
+
+        val todos = toDoDao.getLatest()
+        Log.i("teste","$todo1 - ${todos}")
+        assertEquals("new title",todos?.title)
+    }
 }
