@@ -14,11 +14,21 @@ Este repositório é a minha solução para o desafio final do Santander Bootcam
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Android Studio](https://developer.android.com/studio)
-  - Room
-  - Coroutines
-  - Navigation graph
-  - Unit Tests
-  - ViewModel
+  
+
+## 📓 Conceito Aplicados
+
+- Room
+- Coroutines
+- RecyclerView
+- Navigation graph
+- Unit Tests
+- ViewModel
+- LiveData
+- MVVM
+- JobScheduler
+- Notification
+- Clean Code
 
 ## 📱 Telas do App
 
