@@ -7,7 +7,7 @@ import com.example.todoapp.database.ToDoEntity
 import com.example.todoapp.model.ToDo
 import java.util.*
 
-class DatabaseImpl(context: Context): RepositoryToDo {
+class DatabaseImpl(val context: Context): RepositoryToDo {
 
     private val databaseDao: ToDoDatabaseDao =
         ToDoDatabase.getInstance(context).todoDatabaseDao
@@ -49,6 +49,20 @@ class DatabaseImpl(context: Context): RepositoryToDo {
         )
 
         databaseDao.insert(row)
+        val newTodo = databaseDao.getLatest()
+        if(newTodo != null) {
+            val dataDate = Calendar.getInstance()
+            dataDate.timeInMillis = newTodo.date
+            TodoNotificationScheduler.scheduleTodo(
+                context, ToDo(
+                    newTodo.title,
+                    newTodo.description,
+                    dataDate,
+                    newTodo.isNotificationEnable,
+                    id = newTodo.id
+                )
+            )
+        }
         return true
     }
 
@@ -61,6 +75,7 @@ class DatabaseImpl(context: Context): RepositoryToDo {
         )
 
         databaseDao.update(row)
+        TodoNotificationScheduler.scheduleTodo(context,toDo)
         return true
     }
 
@@ -73,6 +88,22 @@ class DatabaseImpl(context: Context): RepositoryToDo {
         )
 
         databaseDao.delete(row)
+        TodoNotificationScheduler.cancelScheduledTodo(context,toDo)
         return true
+    }
+
+    suspend fun getToDoByid(id: Long): ToDo?{
+        val data = databaseDao.get(id)
+        return if(data != null){
+            val dataDate = Calendar.getInstance()
+            dataDate.timeInMillis = data.date
+            ToDo(
+                data.title,
+                data.description,
+                dataDate,
+                data.isNotificationEnable,
+                id = data.id
+            )
+        } else null
     }
 }

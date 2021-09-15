@@ -26,4 +26,7 @@
     <string name="back_month">Mês Anterior</string>
     <string name="next_month">Proximo Mês</string>
     <string name="empty_state_placeholder_text">Ops! Você não tem \ntarefas neste dia</string>
+
+    <string name="notification_channel_id">default channel</string>
+    <string name="notification_channel_name">default</string>
 </resources>
